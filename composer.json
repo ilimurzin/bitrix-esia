@@ -1,0 +1,13 @@
+{
+    "name": "ilimurzin/bitrix-esia",
+    "description": "Модуль для Битрикса. Добавляет «Госуслуги» в «социальные сервисы».",
+    "type": "bitrix-d7-module",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "composer/installers": "^2.0"
+    },
+    "extra": {
+        "installer-name": "esia"
+    }
+}
