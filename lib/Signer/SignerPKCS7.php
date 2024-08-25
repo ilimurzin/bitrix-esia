@@ -1,10 +1,10 @@
 <?php
 
-namespace Esia\Signer;
+namespace Ilimurzin\Esia\Signer;
 
-use Esia\Signer\Exceptions\CannotReadCertificateException;
-use Esia\Signer\Exceptions\CannotReadPrivateKeyException;
-use Esia\Signer\Exceptions\SignFailException;
+use Ilimurzin\Esia\Signer\Exceptions\CannotReadCertificateException;
+use Ilimurzin\Esia\Signer\Exceptions\CannotReadPrivateKeyException;
+use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 
 class SignerPKCS7 extends AbstractSignerPKCS7 implements SignerInterface
 {

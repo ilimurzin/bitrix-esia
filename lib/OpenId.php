@@ -1,19 +1,19 @@
 <?php
 
-namespace Esia;
+namespace Ilimurzin\Esia;
 
-use Esia\Exceptions\AbstractEsiaException;
-use Esia\Exceptions\ForbiddenException;
-use Esia\Exceptions\RequestFailException;
-use Esia\Http\GuzzleHttpClient;
-use Esia\Signer\Exceptions\CannotGenerateRandomIntException;
-use Esia\Signer\Exceptions\SignFailException;
-use Esia\Signer\SignerInterface;
-use Esia\Signer\SignerPKCS7;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Request;
+use Ilimurzin\Esia\Exceptions\AbstractEsiaException;
+use Ilimurzin\Esia\Exceptions\ForbiddenException;
+use Ilimurzin\Esia\Exceptions\RequestFailException;
+use Ilimurzin\Esia\Http\GuzzleHttpClient;
+use Ilimurzin\Esia\Signer\Exceptions\CannotGenerateRandomIntException;
+use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
+use Ilimurzin\Esia\Signer\SignerInterface;
+use Ilimurzin\Esia\Signer\SignerPKCS7;
 use InvalidArgumentException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;

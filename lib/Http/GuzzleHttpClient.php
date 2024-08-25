@@ -1,10 +1,10 @@
 <?php
 
-namespace Esia\Http;
+namespace Ilimurzin\Esia\Http;
 
-use Esia\Http\Exceptions\HttpException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Ilimurzin\Esia\Http\Exceptions\HttpException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;

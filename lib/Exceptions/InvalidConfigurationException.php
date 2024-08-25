@@ -1,6 +1,6 @@
 <?php
 
-namespace Esia\Exceptions;
+namespace Ilimurzin\Esia\Exceptions;
 
 class InvalidConfigurationException extends AbstractEsiaException
 {

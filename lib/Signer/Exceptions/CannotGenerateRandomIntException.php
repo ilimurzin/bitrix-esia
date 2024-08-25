@@ -1,6 +1,6 @@
 <?php
 
-namespace Esia\Signer\Exceptions;
+namespace Ilimurzin\Esia\Signer\Exceptions;
 
 class CannotGenerateRandomIntException extends SignFailException
 {

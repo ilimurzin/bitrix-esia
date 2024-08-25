@@ -1,8 +1,8 @@
 <?php
 
-namespace Esia\Signer\Exceptions;
+namespace Ilimurzin\Esia\Signer\Exceptions;
 
-use Esia\Exceptions\AbstractEsiaException;
+use Ilimurzin\Esia\Exceptions\AbstractEsiaException;
 
 class SignFailException extends AbstractEsiaException
 {

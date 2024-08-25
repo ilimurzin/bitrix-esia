@@ -1,8 +1,8 @@
 <?php
 
-namespace Esia;
+namespace Ilimurzin\Esia;
 
-use Esia\Exceptions\InvalidConfigurationException;
+use Ilimurzin\Esia\Exceptions\InvalidConfigurationException;
 
 class Config
 {
@@ -95,7 +95,7 @@ class Config
     {
         return $this->certPath;
     }
-    
+
     public function getOid(): string
     {
         return $this->oid;

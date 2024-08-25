@@ -1,8 +1,8 @@
 <?php
 
-namespace Esia\Signer;
+namespace Ilimurzin\Esia\Signer;
 
-use Esia\Signer\Exceptions\SignFailException;
+use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 
 interface SignerInterface
 {

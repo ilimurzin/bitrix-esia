@@ -1,13 +1,13 @@
 <?php
 
-namespace Esia\Signer;
+namespace Ilimurzin\Esia\Signer;
 
-use Esia\Signer\Exceptions\CannotReadCertificateException;
-use Esia\Signer\Exceptions\CannotReadPrivateKeyException;
-use Esia\Signer\Exceptions\NoSuchCertificateFileException;
-use Esia\Signer\Exceptions\NoSuchKeyFileException;
-use Esia\Signer\Exceptions\NoSuchTmpDirException;
-use Esia\Signer\Exceptions\SignFailException;
+use Ilimurzin\Esia\Signer\Exceptions\CannotReadCertificateException;
+use Ilimurzin\Esia\Signer\Exceptions\CannotReadPrivateKeyException;
+use Ilimurzin\Esia\Signer\Exceptions\NoSuchCertificateFileException;
+use Ilimurzin\Esia\Signer\Exceptions\NoSuchKeyFileException;
+use Ilimurzin\Esia\Signer\Exceptions\NoSuchTmpDirException;
+use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 use Psr\Log\LoggerAwareTrait;
 use Psr\Log\NullLogger;
 

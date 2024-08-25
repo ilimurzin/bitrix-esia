@@ -1,6 +1,6 @@
 <?php
 
-namespace Esia\Http\Exceptions;
+namespace Ilimurzin\Esia\Http\Exceptions;
 
 use Psr\Http\Client\ClientExceptionInterface;
 use RuntimeException;
