@@ -2,76 +2,32 @@
 
 namespace Ilimurzin\Esia;
 
+use Bitrix\Main\Web\Http\FormStream;
+use Bitrix\Main\Web\Http\Request;
+use Bitrix\Main\Web\Uri;
 use Exception;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\Request;
 use Ilimurzin\Esia\Exceptions\AbstractEsiaException;
-use Ilimurzin\Esia\Exceptions\ForbiddenException;
 use Ilimurzin\Esia\Exceptions\RequestFailException;
-use Ilimurzin\Esia\Http\GuzzleHttpClient;
 use Ilimurzin\Esia\Signer\Exceptions\CannotGenerateRandomIntException;
 use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 use Ilimurzin\Esia\Signer\SignerInterface;
-use Ilimurzin\Esia\Signer\SignerPKCS7;
 use InvalidArgumentException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
-use Psr\Log\LoggerAwareTrait;
-use Psr\Log\NullLogger;
+use Psr\Log\LoggerInterface;
 use RuntimeException;
 
-/**
- * Class OpenId
- */
 class OpenId
 {
-    use LoggerAwareTrait;
-
-    /**
-     * @var SignerInterface
-     */
-    private $signer;
-
-    /**
-     * Http Client
-     *
-     * @var ClientInterface
-     */
-    private $client;
-
-    /**
-     * Config
-     *
-     * @var Config
-     */
-    private $config;
-
-    public function __construct(Config $config, ClientInterface $client = null)
-    {
-        $this->config = $config;
-        $this->client = $client ?? new GuzzleHttpClient(new Client());
-        $this->logger = new NullLogger();
-        $this->signer = new SignerPKCS7(
-            $config->getCertPath(),
-            $config->getPrivateKeyPath(),
-            $config->getPrivateKeyPassword(),
-            $config->getTmpPath()
-        );
+    public function __construct(
+        private Config $config,
+        private ClientInterface $client,
+        private LoggerInterface $logger,
+        private SignerInterface $signer
+    ) {
     }
 
-    /**
-     * Replace default signer
-     */
-    public function setSigner(SignerInterface $signer): void
-    {
-        $this->signer = $signer;
-    }
-
-    /**
-     * Get config
-     */
     public function getConfig(): Config
     {
         return $this->config;
@@ -84,7 +40,7 @@ class OpenId
      *     <a href="<?=$esia->buildUrl()?>">Login</a>
      * ```
      *
-     * @return string|false
+     * @return string
      * @throws SignFailException
      */
     public function buildUrl(string $state = null, array $additionalParams = [])
@@ -167,17 +123,14 @@ class OpenId
             'scope' => $this->config->getScopeString(),
             'timestamp' => $timestamp,
             'token_type' => 'Bearer',
-            'refresh_token' => $state,
         ];
 
         $payload = $this->sendRequest(
             new Request(
                 'POST',
-                $this->config->getTokenUrl(),
-                [
-                    'Content-Type' => 'application/x-www-form-urlencoded',
-                ],
-                http_build_query($body)
+                new Uri($this->config->getTokenUrl()),
+                [],
+                new FormStream($body)
             )
         );
 
@@ -206,7 +159,7 @@ class OpenId
     {
         $url = $this->config->getPersonUrl();
 
-        return $this->sendRequest(new Request('GET', $url));
+        return $this->sendRequest(new Request('GET', new Uri($url)));
     }
 
     /**
@@ -221,7 +174,7 @@ class OpenId
     public function getContactInfo(): array
     {
         $url = $this->config->getPersonUrl() . '/ctts';
-        $payload = $this->sendRequest(new Request('GET', $url));
+        $payload = $this->sendRequest(new Request('GET', new Uri($url)));
 
         if ($payload && $payload['size'] > 0) {
             return $this->collectArrayElements($payload['elements']);
@@ -243,7 +196,7 @@ class OpenId
     public function getAddressInfo(): array
     {
         $url = $this->config->getPersonUrl() . '/addrs';
-        $payload = $this->sendRequest(new Request('GET', $url));
+        $payload = $this->sendRequest(new Request('GET', new Uri($url)));
 
         if ($payload['size'] > 0) {
             return $this->collectArrayElements($payload['elements']);
@@ -265,7 +218,7 @@ class OpenId
     {
         $url = $this->config->getPersonUrl() . '/docs';
 
-        $payload = $this->sendRequest(new Request('GET', $url));
+        $payload = $this->sendRequest(new Request('GET', new Uri($url)));
 
         if ($payload && $payload['size'] > 0) {
             return $this->collectArrayElements($payload['elements']);
@@ -284,7 +237,7 @@ class OpenId
     {
         $result = [];
         foreach ($elements as $elementUrl) {
-            $elementPayload = $this->sendRequest(new Request('GET', $elementUrl));
+            $elementPayload = $this->sendRequest(new Request('GET', new Uri($elementUrl)));
 
             if ($elementPayload) {
                 $result[] = $elementPayload;
@@ -305,7 +258,7 @@ class OpenId
                 $request = $request->withHeader('Authorization', 'Bearer ' . $this->config->getToken());
             }
             $response = $this->client->sendRequest($request);
-            $responseBody = json_decode($response->getBody()->getContents(), true);
+            $responseBody = json_decode((string) $response->getBody(), true);
 
             if (!is_array($responseBody)) {
                 throw new RuntimeException(
@@ -320,16 +273,6 @@ class OpenId
             return $responseBody;
         } catch (ClientExceptionInterface $e) {
             $this->logger->error('Request was failed', ['exception' => $e]);
-            $prev = $e->getPrevious();
-
-            // Only for Guzzle
-            if ($prev instanceof BadResponseException
-                && $prev->getResponse() !== null
-                && $prev->getResponse()->getStatusCode() === 403
-            ) {
-                throw new ForbiddenException('Request is forbidden', 0, $e);
-            }
-
             throw new RequestFailException('Request is failed', 0, $e);
         } catch (RuntimeException $e) {
             $this->logger->error('Cannot read body', ['exception' => $e]);
