@@ -1,0 +1,9 @@
+#bx_socserv_icon_ilimurzin_esia {
+  background-size: 35px;
+  background-image: url(/bitrix/images/ilimurzin.esia/esia_icon_round.svg);
+}
+
+.bx-ss-icon.ilimurzin-esia-icon {
+  background-size: 16px;
+  background-image: url(/bitrix/images/ilimurzin.esia/esia_icon.svg);
+}
