@@ -4,7 +4,7 @@ use Bitrix\Main\EventManager;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\ModuleManager;
 
-class ilimurzin_esia extends \CModule
+class ilimurzin_esia extends CModule
 {
     public $MODULE_ID = 'ilimurzin.esia';
 
