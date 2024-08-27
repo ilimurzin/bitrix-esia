@@ -8,9 +8,8 @@ final class CryptoProSigner implements SignerInterface
 {
     public function __construct(
         private string $thumbprint,
-        private ?string $pin = null
-    ) {
-    }
+        private ?string $pin = null,
+    ) {}
 
     public function sign(string $message): string
     {

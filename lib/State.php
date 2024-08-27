@@ -19,12 +19,12 @@ final class State
             random_int(0, 0x3fff) | 0x8000,
             random_int(0, 0xffff),
             random_int(0, 0xffff),
-            random_int(0, 0xffff)
+            random_int(0, 0xffff),
         );
 
         Application::getInstance()->getLocalSession('ilimurzin_esia')->set(
             $state,
-            $payload
+            $payload,
         );
 
         return $state;

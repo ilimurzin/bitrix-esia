@@ -130,7 +130,7 @@ final class SocialService extends \CSocServAuth
             http_build_query([
                 'check_key' => \CSocServAuthManager::GetUniqueKey(),
                 'backurl' => $arParams['BACKURL'] ?? '/',
-            ])
+            ]),
         );
         $escapedRedirectUrl = \CUtil::JSEscape($redirectUrl);
 

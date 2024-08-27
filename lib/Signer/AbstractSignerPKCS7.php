@@ -34,7 +34,7 @@ abstract class AbstractSignerPKCS7
         /**
          * Temporary directory for message signing (must me writable)
          */
-        protected string $tmpPath
+        protected string $tmpPath,
     ) {
         $this->logger = new NullLogger();
     }

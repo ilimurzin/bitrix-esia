@@ -24,9 +24,8 @@ class OpenId
         private Config $config,
         private ClientInterface $client,
         private LoggerInterface $logger,
-        private SignerInterface $signer
-    ) {
-    }
+        private SignerInterface $signer,
+    ) {}
 
     public function getConfig(): Config
     {
@@ -109,7 +108,7 @@ class OpenId
             $this->config->getScopeString()
             . $timestamp
             . $this->config->getClientId()
-            . $state
+            . $state,
         );
 
         $body = [
@@ -129,8 +128,8 @@ class OpenId
                 'POST',
                 new Uri($this->config->getTokenUrl()),
                 [],
-                new FormStream($body)
-            )
+                new FormStream($body),
+            ),
         );
 
         $this->logger->debug('Payload: ', $payload);
@@ -264,8 +263,8 @@ class OpenId
                     sprintf(
                         'Cannot decode response body. JSON error (%d): %s',
                         json_last_error(),
-                        json_last_error_msg()
-                    )
+                        json_last_error_msg(),
+                    ),
                 );
             }
 
@@ -304,7 +303,7 @@ class OpenId
                 random_int(0, 0x3fff) | 0x8000,
                 random_int(0, 0xffff),
                 random_int(0, 0xffff),
-                random_int(0, 0xffff)
+                random_int(0, 0xffff),
             );
         } catch (Exception $e) {
             throw new CannotGenerateRandomIntException('Cannot generate random integer', $e);

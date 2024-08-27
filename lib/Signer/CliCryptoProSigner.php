@@ -13,7 +13,7 @@ final class CliCryptoProSigner implements SignerInterface
         private string $toolPath,
         private string $thumbprint,
         private ?string $pin = null,
-        ?string $tempDir = null
+        ?string $tempDir = null,
     ) {
         $this->tempDir = $tempDir ?? sys_get_temp_dir();
 

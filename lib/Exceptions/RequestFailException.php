@@ -2,6 +2,4 @@
 
 namespace Ilimurzin\Esia\Exceptions;
 
-class RequestFailException extends AbstractEsiaException
-{
-}
+class RequestFailException extends AbstractEsiaException {}

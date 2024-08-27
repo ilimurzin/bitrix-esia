@@ -31,7 +31,7 @@ final class Esia
             self::getConfig(),
             new HttpClient(),
             new NullLogger(),
-            self::getSigner()
+            self::getSigner(),
         );
     }
 
@@ -119,7 +119,7 @@ final class Esia
             $email,
             $person['firstName'],
             $person['lastName'],
-            $person['middleName'] ?? null
+            $person['middleName'] ?? null,
         );
     }
 }

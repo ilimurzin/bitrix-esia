@@ -12,7 +12,6 @@ final class User
         public string $email,
         public string $firstName,
         public string $lastName,
-        public ?string $patronymic
-    ) {
-    }
+        public ?string $patronymic,
+    ) {}
 }

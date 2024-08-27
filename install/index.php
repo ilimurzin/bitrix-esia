@@ -73,7 +73,7 @@ class ilimurzin_esia extends \CModule
             'OnAuthServicesBuildList',
             $this->MODULE_ID,
             \Ilimurzin\Esia\EventHandlers\SocialServicesEventHandlers::class,
-            'onAuthServicesBuildList'
+            'onAuthServicesBuildList',
         );
     }
 
@@ -84,7 +84,7 @@ class ilimurzin_esia extends \CModule
             'OnAuthServicesBuildList',
             $this->MODULE_ID,
             \Ilimurzin\Esia\EventHandlers\SocialServicesEventHandlers::class,
-            'onAuthServicesBuildList'
+            'onAuthServicesBuildList',
         );
     }
 }
