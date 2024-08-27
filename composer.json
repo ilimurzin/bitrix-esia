@@ -11,7 +11,8 @@
         "psr/http-client": "^1.0"
     },
     "require-dev": {
-        "rector/rector": "^1.2"
+        "rector/rector": "^1.2",
+        "friendsofphp/php-cs-fixer": "^3.63"
     },
     "config": {
         "allow-plugins": {
