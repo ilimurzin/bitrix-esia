@@ -168,7 +168,6 @@ class Config
     }
 
     /**
-     * @return string
      * @throws InvalidConfigurationException
      */
     public function getPersonUrl(): string

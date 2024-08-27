@@ -40,7 +40,6 @@ class OpenId
      *     <a href="<?=$esia->buildUrl()?>">Login</a>
      * ```
      *
-     * @return string
      * @throws SignFailException
      */
     public function buildUrl(string $state = null, array $additionalParams = []): string

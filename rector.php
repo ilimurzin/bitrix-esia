@@ -12,4 +12,7 @@ return RectorConfig::configure()
         __DIR__ . '/tools',
     ])
     ->withPhpSets()
-    ->withPreparedSets(typeDeclarations: true);
+    ->withPreparedSets(
+        deadCode: true,
+        typeDeclarations: true,
+    );
