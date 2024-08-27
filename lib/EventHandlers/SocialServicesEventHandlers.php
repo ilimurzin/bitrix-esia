@@ -15,7 +15,7 @@ final class SocialServicesEventHandlers
 
         return [
             'ID' => 'ilimurzin_esia',
-            'CLASS' => 'Ilimurzin\Esia\SocialService',
+            'CLASS' => \Ilimurzin\Esia\SocialService::class,
             'NAME' => 'Госуслуги',
             'ICON' => 'ilimurzin-esia-icon',
         ];

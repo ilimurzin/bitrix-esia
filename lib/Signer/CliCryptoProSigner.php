@@ -7,20 +7,14 @@ use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 
 final class CliCryptoProSigner implements SignerInterface
 {
-    private $toolPath;
-    private $thumbprint;
-    private $pin;
     private $tempDir;
 
     public function __construct(
-        string $toolPath,
-        string $thumbprint,
-        ?string $pin = null,
+        private string $toolPath,
+        private string $thumbprint,
+        private ?string $pin = null,
         ?string $tempDir = null
     ) {
-        $this->toolPath = $toolPath;
-        $this->thumbprint = $thumbprint;
-        $this->pin = $pin;
         $this->tempDir = $tempDir ?? sys_get_temp_dir();
 
         if (!file_exists($this->tempDir)) {

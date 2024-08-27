@@ -11,6 +11,5 @@ return RectorConfig::configure()
         __DIR__ . '/lib',
         __DIR__ . '/tools',
     ])
-    // uncomment to reach your current PHP version
-    // ->withPhpSets()
+    ->withPhpSets()
     ->withTypeCoverageLevel(0);

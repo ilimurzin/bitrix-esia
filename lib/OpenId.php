@@ -46,7 +46,7 @@ class OpenId
     public function buildUrl(string $state = null, array $additionalParams = [])
     {
         $timestamp = $this->getTimeStamp();
-        $state = $state ?? $this->buildState();
+        $state ??= $this->buildState();
         $message = $this->config->getScopeString()
             . $timestamp
             . $this->config->getClientId()

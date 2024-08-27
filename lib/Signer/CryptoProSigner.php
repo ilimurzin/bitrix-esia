@@ -6,15 +6,10 @@ use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 
 final class CryptoProSigner implements SignerInterface
 {
-    private $thumbprint;
-    private $pin;
-
     public function __construct(
-        string $thumbprint,
-        ?string $pin = null
+        private string $thumbprint,
+        private ?string $pin = null
     ) {
-        $this->thumbprint = $thumbprint;
-        $this->pin = $pin;
     }
 
     public function sign(string $message): string
