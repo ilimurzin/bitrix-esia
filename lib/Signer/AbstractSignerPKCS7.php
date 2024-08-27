@@ -16,48 +16,28 @@ abstract class AbstractSignerPKCS7
     use LoggerAwareTrait;
 
     /**
-     * Path to the certificate
-     *
-     * @var string
-     */
-    protected $certPath;
-
-    /**
-     * Path to the private key
-     *
-     * @var string
-     */
-    protected $privateKeyPath;
-
-    /**
-     * Password for the private key
-     *
-     * @var string
-     */
-    protected $privateKeyPassword;
-
-    /**
      * SignerPKCS7 constructor.
      */
     public function __construct(
-        string $certPath,
-        string $privateKeyPath,
-        ?string $privateKeyPassword,
-        string $tmpPath
+        /**
+         * Path to the certificate
+         */
+        protected string $certPath,
+        /**
+         * Path to the private key
+         */
+        protected string $privateKeyPath,
+        /**
+         * Password for the private key
+         */
+        protected ?string $privateKeyPassword,
+        /**
+         * Temporary directory for message signing (must me writable)
+         */
+        protected string $tmpPath
     ) {
-        $this->certPath = $certPath;
-        $this->privateKeyPath = $privateKeyPath;
-        $this->privateKeyPassword = $privateKeyPassword;
-        $this->tmpPath = $tmpPath;
         $this->logger = new NullLogger();
     }
-
-    /**
-     * Temporary directory for message signing (must me writable)
-     *
-     * @var string
-     */
-    protected $tmpPath;
 
     /**
      * @throws SignFailException

@@ -7,7 +7,7 @@ use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 
 final class CliCryptoProSigner implements SignerInterface
 {
-    private $tempDir;
+    private string $tempDir;
 
     public function __construct(
         private string $toolPath,

@@ -35,7 +35,7 @@ class Config
     private $accessType = 'offline';
 
     private $token = '';
-    private $oid = '';
+    private string $oid = '';
 
     /**
      * Config constructor.

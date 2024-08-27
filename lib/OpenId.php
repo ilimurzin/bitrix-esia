@@ -43,7 +43,7 @@ class OpenId
      * @return string
      * @throws SignFailException
      */
-    public function buildUrl(string $state = null, array $additionalParams = [])
+    public function buildUrl(string $state = null, array $additionalParams = []): string
     {
         $timestamp = $this->getTimeStamp();
         $state ??= $this->buildState();

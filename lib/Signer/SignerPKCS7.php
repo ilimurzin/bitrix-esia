@@ -8,7 +8,7 @@ use Ilimurzin\Esia\Signer\Exceptions\SignFailException;
 
 class SignerPKCS7 extends AbstractSignerPKCS7 implements SignerInterface
 {
-    private $pkcs7Flags = PKCS7_DETACHED;
+    private int $pkcs7Flags = PKCS7_DETACHED;
 
     public function addPKCS7Flag(int $pkcs7Flag): void
     {
