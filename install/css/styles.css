@@ -7,3 +7,9 @@
   background-size: 16px;
   background-image: url(/bitrix/images/ilimurzin.esia/esia_icon.svg);
 }
+
+#bx_auth_href_ilimurzin_esia {
+  background-size: 37px;
+  background-repeat: no-repeat;
+  background-image: url(/bitrix/images/ilimurzin.esia/esia_icon_round.svg);
+}
