@@ -306,7 +306,7 @@ class OpenId
                 random_int(0, 0xffff),
             );
         } catch (Exception $e) {
-            throw new CannotGenerateRandomIntException('Cannot generate random integer', $e);
+            throw new CannotGenerateRandomIntException('Cannot generate random integer', 0, $e);
         }
     }
 
