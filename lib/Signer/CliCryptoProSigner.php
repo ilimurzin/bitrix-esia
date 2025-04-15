@@ -32,10 +32,8 @@ final class CliCryptoProSigner implements SignerInterface
 
         try {
             return $this->signFile($tempPath);
-        } catch (SignFailException $e) {
+        } finally {
             unlink($tempPath);
-
-            throw $e;
         }
     }
 
