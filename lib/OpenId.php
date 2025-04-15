@@ -41,7 +41,7 @@ class OpenId
      *
      * @throws SignFailException
      */
-    public function buildUrl(string $state = null, array $additionalParams = []): string
+    public function buildUrl(?string $state = null, array $additionalParams = []): string
     {
         $timestamp = $this->getTimeStamp();
         $state ??= $this->buildState();
@@ -77,7 +77,7 @@ class OpenId
     /**
      * Return an url for logout
      */
-    public function buildLogoutUrl(string $redirectUrl = null): string
+    public function buildLogoutUrl(?string $redirectUrl = null): string
     {
         $url = $this->config->getLogoutUrl() . '?%s';
         $params = [
