@@ -15,10 +15,10 @@
         "friendsofphp/php-cs-fixer": "^3.63"
     },
     "scripts": {
-        "cs-check": "php-cs-fixer check",
-        "cs-fix": "php-cs-fixer fix",
-        "rector-check": "rector --dry-run",
-        "rector-fix": "rector"
+        "cs:check": "php-cs-fixer check",
+        "cs:fix": "php-cs-fixer fix",
+        "rector:check": "rector --dry-run",
+        "rector:fix": "rector"
     },
     "config": {
         "allow-plugins": {
