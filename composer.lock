@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9d321b19087ce1202dc81490a79d8c7",
+    "content-hash": "50384abe88144cfaf14c8ca76bc78267",
     "packages": [
         {
             "name": "composer/installers",
@@ -812,20 +812,20 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.0",
+            "version": "2.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "384af967d35b2162f69526c7276acadce534d0e1"
+                "reference": "96dde49e967c0c22812bcfa7bda4ff82c09f3b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/384af967d35b2162f69526c7276acadce534d0e1",
-                "reference": "384af967d35b2162f69526c7276acadce534d0e1",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/96dde49e967c0c22812bcfa7bda4ff82c09f3b0c",
+                "reference": "96dde49e967c0c22812bcfa7bda4ff82c09f3b0c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2|^8.0"
+                "php": "^7.4|^8.0"
             },
             "conflict": {
                 "phpstan/phpstan-shim": "*"
@@ -866,7 +866,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-27T09:18:05+00:00"
+            "time": "2025-04-16T13:19:18+00:00"
         },
         {
             "name": "psr/container",
@@ -1503,21 +1503,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "1.2.4",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "42a4aa23b48b4cfc8ebfeac2b570364e27744381"
+                "reference": "059b827cc648929711606e9824337e41e2f9ed92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/42a4aa23b48b4cfc8ebfeac2b570364e27744381",
-                "reference": "42a4aa23b48b4cfc8ebfeac2b570364e27744381",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/059b827cc648929711606e9824337e41e2f9ed92",
+                "reference": "059b827cc648929711606e9824337e41e2f9ed92",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.11.11"
+                "php": "^7.4|^8.0",
+                "phpstan/phpstan": "^2.1.9"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -1550,7 +1550,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/1.2.4"
+                "source": "https://github.com/rectorphp/rector/tree/2.0.11"
             },
             "funding": [
                 {
@@ -1558,7 +1558,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-23T09:03:01+00:00"
+            "time": "2025-03-28T10:25:17+00:00"
         },
         {
             "name": "sebastian/diff",
