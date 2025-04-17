@@ -1,0 +1,12 @@
+parameters:
+	level: 4
+	paths:
+		- install
+		- lang
+		- lib
+		- tools
+	scanDirectories:
+		- proprietary-vendor/bitrix/modules/main
+		- proprietary-vendor/bitrix/modules/socialservices
+	stubFiles:
+		- proprietary-vendor/bitrix.stub

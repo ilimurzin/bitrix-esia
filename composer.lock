@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3ba0bc96e07dcec9ef44fa9a57cc1fa",
+    "content-hash": "02efba5c65a9115eca68f8db4ce48966",
     "packages": [
         {
             "name": "composer/installers",
@@ -2904,11 +2904,58 @@
                 }
             ],
             "time": "2023-01-01T08:36:10+00:00"
+        },
+        {
+            "name": "webmasterskaya/crypto-pro-php-stubs",
+            "version": "dev-for-ilimurzin-esia",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ilimurzin/crypto-pro-php-stubs.git",
+                "reference": "e991b2fc6fa477e9c0c4f88c6c39dea7981e2650"
+            },
+            "require": {
+                "php": ">=7.2 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Vasilev",
+                    "email": "kern.usr@gmail.com"
+                }
+            ],
+            "description": "Самая полная библиотека подсказок IDE libphpcades (КриптоПро), которая обеспечивает автозаполнение в современных IDE.",
+            "keywords": [
+                "CryptoPro",
+                "DevTools",
+                "Eclipse",
+                "IDE",
+                "Netbeans",
+                "PhpStorm",
+                "Stub",
+                "Stubs",
+                "autocomplete",
+                "КриптоПро"
+            ],
+            "support": {
+                "issues": "https://github.com/webmasterskaya/crypto-pro-php-stubs/issues",
+                "source": "https://github.com/webmasterskaya/crypto-pro-php-stubs"
+            },
+            "time": "2025-02-20T17:25:01+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "webmasterskaya/crypto-pro-php-stubs": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

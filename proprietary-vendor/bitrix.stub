@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * @param string $url
+ * @param bool $skip_security_check
+ * @param string $status
+ * @return never
+ */
+function LocalRedirect($url, $skip_security_check = false, $status = "302 Found") {}

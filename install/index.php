@@ -12,8 +12,6 @@ class ilimurzin_esia extends CModule
     {
         Loc::loadMessages(__FILE__);
 
-        $arModuleVersion = null;
-
         include __DIR__ . '/version.php';
 
         if (isset($arModuleVersion) && is_array($arModuleVersion)) {
