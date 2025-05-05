@@ -1,19 +1,11 @@
-name: PHP Composer
+name: Check
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-permissions:
-  contents: read
+on: [push, pull_request]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-24.04
+    container: ghcr.io/ilimurzin/php
     steps:
     - uses: actions/checkout@v4
 
@@ -37,3 +29,6 @@ jobs:
 
     - name: Check rector
       run: composer rector:check
+
+    - name: Run code analysis
+      run: mv /tmp/bitrix proprietary-vendor/bitrix && composer phpstan

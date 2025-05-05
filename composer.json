@@ -25,7 +25,7 @@
     "scripts": {
         "cs:check": "php-cs-fixer check",
         "cs:fix": "php-cs-fixer fix",
-        "phpstan": "phpstan --memory-limit=128M",
+        "phpstan": "phpstan --memory-limit=256M",
         "rector:check": "rector --dry-run",
         "rector:fix": "rector"
     },
