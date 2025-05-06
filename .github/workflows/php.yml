@@ -24,8 +24,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: Install proprietary dependencies
-      run: mv /tmp/bitrix proprietary-vendor/bitrix
+    - name: Link proprietary dependencies
+      run: ln -s /tmp/bitrix proprietary-vendor/bitrix
 
     - name: Check coding standards
       run: composer cs:check
