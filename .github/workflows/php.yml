@@ -3,7 +3,7 @@ name: Check
 on: [push, pull_request]
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-24.04
     container: ghcr.io/ilimurzin/php
     steps:
@@ -24,11 +24,14 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: Check code style
+    - name: Install proprietary dependencies
+      run: mv /tmp/bitrix proprietary-vendor/bitrix
+
+    - name: Check coding standards
       run: composer cs:check
 
-    - name: Check rector
+    - name: Check rector rules
       run: composer rector:check
 
     - name: Run code analysis
-      run: mv /tmp/bitrix proprietary-vendor/bitrix && composer phpstan
+      run: composer phpstan
