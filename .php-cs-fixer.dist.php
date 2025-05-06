@@ -3,7 +3,12 @@
 declare(strict_types=1);
 
 $finder = (new PhpCsFixer\Finder())
-    ->in(__DIR__)
+    ->in([
+        __DIR__ . '/install',
+        __DIR__ . '/lang',
+        __DIR__ . '/lib',
+        __DIR__ . '/tools',
+    ])
     ->append([
         __FILE__,
     ])
